@@ -26,7 +26,7 @@ dist-ssr
 /test-results/
 /playwright-report/
 /playwright/.cache/
-temp_file.js
+#temp_file.js
 # storybook
 storybook-static
 
