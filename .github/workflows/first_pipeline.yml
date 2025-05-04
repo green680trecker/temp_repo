@@ -32,3 +32,16 @@ jobs:
           context: .
           push: true
           tags: ghcr.io/${{ github.actor }}/${{ github.event.repository.name }}:latest
+
+      - uses: azure/login@v2
+        name: Logging into Azure
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Deploy to Azure Web App
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: my-webapp-lab9
+          images: ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}:latest
+
+
